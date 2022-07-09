@@ -6,11 +6,11 @@ const app = express();
 const PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;
 
-const produtoRoutes = require("./routes/produtoRoutes");
-app.use("/", produtoRoutes);
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+const produtoRoutes = require("./routes/produtoRoutes");
+app.use("/", produtoRoutes);
 
 mongoose
     .connect(DATABASE)
